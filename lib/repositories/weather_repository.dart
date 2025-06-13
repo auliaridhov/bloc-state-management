@@ -8,20 +8,22 @@ class WeatherRepository {
 
   Future<Weather> fetchWeather() async {
     try {
-      final url = 'https://api.open-meteo.com/v1/forecast?latitude=35&longitude=139&current_weather=true';
-      final response = await http.get(Uri.parse(url));
+      // final url = 'https://api.open-meteo.com/v1/forecast?latitude=35&longitude=139&current_weather=true';
+      // final response = await http.get(Uri.parse(url));
+      //
+      // if (response.statusCode == 200) {
+      //   final jsonData = json.decode(response.body);
+      //   final weather = Weather.fromJson(jsonData);
+      //
+      //   await _box.clear();
+      //   await _box.add(weather);
+      //
+      //   return weather;
+      // } else {
+      //   throw Exception('Network error');
+      // }
 
-      if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
-        final weather = Weather.fromJson(jsonData);
-
-        await _box.clear();
-        await _box.add(weather);
-
-        return weather;
-      } else {
-        throw Exception('Network error');
-      }
+      return Weather(temperature: 0.0, windspeed: 0.0);
     } catch (_) {
       if (_box.isNotEmpty) {
         return _box.values.first;

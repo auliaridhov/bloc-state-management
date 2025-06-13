@@ -22,8 +22,8 @@ class UserAdapter extends TypeAdapter<User> {
       email: fields[2] as String,
       phone: fields[3] as String,
       website: fields[4] as String,
-      address: (fields[5] as Map).cast<String, dynamic>(),
-      company: (fields[6] as Map).cast<String, dynamic>(),
+      address: (fields[5] as Map?)?.cast<String, dynamic>(),
+      company: (fields[6] as Map?)?.cast<String, dynamic>(),
     );
   }
 

@@ -20,12 +20,12 @@ class User {
   final String website;
 
   @HiveField(5)
-  final Map<String, dynamic> address;
+  final Map<String, dynamic>? address;
 
   @HiveField(6)
-  final Map<String, dynamic> company;
+  final Map<String, dynamic>? company;
 
-  User({required this.id, required this.name, required this.email, required this.phone, required this.website, required this.address, required this.company});
+  User({required this.id, required this.name, required this.email, this.phone = '', this.website = '', this.address, this.company});
 
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json['id'],

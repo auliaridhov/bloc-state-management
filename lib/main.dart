@@ -3,6 +3,7 @@ import 'package:bloctutorial/blocs/user_detail/user_detail_bloc.dart';
 import 'package:bloctutorial/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'blocs/cart/cart_bloc.dart';
 import 'models/user_model.dart';
 import 'models/weather_model.dart';
 import 'repositories/user_repository.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<WeatherBloc>(create: (_) => WeatherBloc(weatherRepo)),
         BlocProvider<UserDetailBloc>(create: (_) => UserDetailBloc(userRepo)),
         BlocProvider(create: (_) => LoginBloc()),
+        BlocProvider(create: (_) => CartBloc()),
       ],
       child: MaterialApp(
         title: 'Multi-BLoC Demo',

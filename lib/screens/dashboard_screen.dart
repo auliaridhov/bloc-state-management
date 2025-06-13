@@ -1,3 +1,5 @@
+import 'package:bloctutorial/screens/product_list_page.dart';
+import 'package:bloctutorial/widgets/clock_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/user/user_bloc.dart';
@@ -50,6 +52,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// Weather Section
+              ClockWidget(),
+              SizedBox(height: 8),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => ProductListPage()));
+                },
+                  child: Text('GOTO PRODUCT LIST', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+              SizedBox(height: 8),
               Text('Weather Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               SizedBox(height: 8),
               BlocBuilder<WeatherBloc, WeatherState>(
