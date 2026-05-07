@@ -1,4 +1,5 @@
 import 'package:bloctutorial/screens/product_list_page.dart';
+import 'package:bloctutorial/screens/sliver_page.dart';
 import 'package:bloctutorial/widgets/clock_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,6 +62,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Text('GOTO PRODUCT LIST', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
               SizedBox(height: 8),
               Text('Weather Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              CustomBounceButton(
+                text: 'Goto Sliver',
+                color: Colors.green,
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SliverPage()));
+                },
+              ),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SliverPage()));
+                },
+                  child: Text('Goto SLiver', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
               SizedBox(height: 8),
               BlocBuilder<WeatherBloc, WeatherState>(
                 builder: (context, state) {
